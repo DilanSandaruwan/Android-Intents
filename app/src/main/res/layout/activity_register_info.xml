@@ -14,8 +14,9 @@
         <RelativeLayout
             android:id="@+id/lytImgView"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
+            android:layout_weight="1"
             android:background="@drawable/rain_on_window">
 
 
@@ -24,15 +25,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:layout_margin="60dp"
+                android:layout_margin="70dp"
                 android:backgroundTint="#99999999"
-                app:cardCornerRadius="150dp">
+                app:cardCornerRadius="250dp">
 
                 <ImageView
                     android:id="@+id/imgProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerInside" />
+                    android:scaleType="fitXY" />
 
             </androidx.cardview.widget.CardView>
 
@@ -56,6 +57,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -76,8 +78,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_toRightOf="@+id/icon_name"
                     android:orientation="vertical">
 
@@ -87,7 +89,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:text="Name"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -118,8 +120,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_toRightOf="@+id/icon_email"
                     android:orientation="vertical">
 
@@ -129,7 +131,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:text="Email"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -161,7 +163,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_toRightOf="@+id/icon_age"
                     android:orientation="vertical">
@@ -172,7 +173,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:text="Age"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -215,7 +216,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:text="Phone"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <EditText

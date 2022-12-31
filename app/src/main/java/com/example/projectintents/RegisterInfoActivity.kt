@@ -1,26 +1,24 @@
 package com.example.projectintents
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.os.Parcelable
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.TooltipCompat
 import com.example.projectintents.databinding.ActivityRegisterInfoBinding
 import com.example.projectintents.models.MyProfile
 import java.io.IOException
-import java.util.function.IntConsumer
 
 
 class RegisterInfoActivity : AppCompatActivity() {
 
-    val SELECT_PICTURE = 1000
+//    val SELECT_PICTURE = 1000
 
     lateinit var binding: ActivityRegisterInfoBinding
     var selectedImageUriToPass: Uri? = null
@@ -32,7 +30,7 @@ class RegisterInfoActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnSave.setOnClickListener {
-            if(checkValidity()){
+            if (checkValidity()) {
                 val myProfile = readyParcel()
                 passProfile(myProfile)
             }
@@ -82,7 +80,7 @@ class RegisterInfoActivity : AppCompatActivity() {
 
     }
 
-    private fun checkValidity():Boolean {
+    private fun checkValidity(): Boolean {
         if (binding.etName.text.toString().isEmpty()) {
             binding.etName.setError("Please enter full name here!")
         }
@@ -94,7 +92,18 @@ class RegisterInfoActivity : AppCompatActivity() {
         }
         if (binding.etPhone.text.toString().isBlank()) {
             binding.etPhone.setError("Please enter phone number here!")
-        }else{
+        } else if (selectedImageUriToPass == null) {
+            AlertDialog.Builder(this).apply {
+                setTitle(
+                    "Choose an image"
+                )
+                setPositiveButton("OK", DialogInterface.OnClickListener(
+                    function = { _: DialogInterface, _: Int -> chooseProfileImage() }
+                ))
+                show()
+            }
+
+        } else {
             return true
         }
         return false
@@ -103,15 +112,10 @@ class RegisterInfoActivity : AppCompatActivity() {
     private fun readyParcel(): MyProfile {
         val name = binding.etName.text?.toString() ?: "No Name"
         val age = binding.etAge.text?.toString()?.toInt() ?: 0
-        val email = binding.etAge.text?.toString()?:"No Email"
-        val phone = binding.etAge.text?.toString()?:"No Phone"
-        val image = selectedImageUriToPass?.path ?: "No Image"
+        val email = binding.etEmail.text?.toString() ?: "No Email"
+        val phone = binding.etPhone.text?.toString() ?: "No Phone"
+        val image = selectedImageUriToPass?.toString() ?: "No Image"
 
-        Log.d("TAG", "readyParcel: name " + name)
-        Log.d("TAG", "readyParcel: age " + age)
-        Log.d("TAG", "readyParcel: email " + email)
-        Log.d("TAG", "readyParcel: phone " + phone)
-        Log.d("TAG", "readyParcel: image " + image)
         return MyProfile(name, age, email, phone, image)
     }
 
