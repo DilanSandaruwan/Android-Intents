@@ -21,9 +21,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="60dp"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#99999999"
                 app:cardCornerRadius="150dp">
 
                 <ImageView
+                    android:id="@+id/img_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/transparent_grey"
@@ -70,12 +73,15 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/etName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="Full Name" />
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -112,12 +118,14 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="eg: abc@gmail.com" />
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -154,12 +162,14 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/etAge"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="Age in Years" />
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -196,12 +206,14 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/etPhone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:hint="eg: +94 7X XXXX XXX" />
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
